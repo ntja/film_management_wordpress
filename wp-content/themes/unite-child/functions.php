@@ -1,4 +1,8 @@
 <?php
+add_action( 'wp_enqueue_scripts', 'enqueue_parent_styles' );
+function enqueue_parent_styles() {
+    wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
+}
 function create_post_type() {
     register_post_type( 'films',
         array(
@@ -70,4 +74,3 @@ function year_taxonomy() {
 	);
 }
 add_action( 'init', 'year_taxonomy' );
-
